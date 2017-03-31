@@ -1,5 +1,7 @@
 package com.example.yousheng.coolweather.util;
 
+import android.util.Log;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
@@ -13,6 +15,7 @@ public class HttpUtil {
         OkHttpClient client=new OkHttpClient();
         Request request=new Request.Builder().url(address).build();
         //注册一个未来会发生的回调，来响应服务器请求
+        Log.d("test", "sendOkHttpRequest: "+request);
         client.newCall(request).enqueue(callback);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.yousheng.coolweather.util;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.example.yousheng.coolweather.db.City;
 import com.example.yousheng.coolweather.db.County;
@@ -20,6 +21,7 @@ public class Utility {
      * 解析和处理服务器返回的省级数据
      */
     public static boolean handleProvinceResponse(String response) {
+        Log.d("test", "handleProvinceResponse: ");
         if (!TextUtils.isEmpty(response)) {
             try {
                 JSONArray allProvinces = new JSONArray(response);

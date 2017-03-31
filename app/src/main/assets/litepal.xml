@@ -3,9 +3,9 @@
     <version value="1"/>
 
     <list>
-        <mapping class="com.example.yousheng.coolweather.android.db.Province"/>
-        <mapping class="com.example.yousheng.coolweather.android.db.City"/>
-        <mapping class="com.example.yousheng.coolweather.android.db.County"/>
+        <mapping class="com.example.yousheng.coolweather.db.Province"/>
+        <mapping class="com.example.yousheng.coolweather.db.City"/>
+        <mapping class="com.example.yousheng.coolweather.db.County"/>
 
     </list>
 
