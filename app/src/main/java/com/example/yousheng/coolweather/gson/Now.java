@@ -15,8 +15,8 @@ import com.google.gson.annotations.SerializedName;
  *  }
  */
 public class Now {
-    @SerializedName("temp")
-    public String temprature;
+    @SerializedName("tmp")
+    public String temperature;
 
     @SerializedName("cond")
     public More more;

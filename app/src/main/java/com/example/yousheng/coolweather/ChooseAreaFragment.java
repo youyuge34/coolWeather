@@ -99,6 +99,10 @@ public class ChooseAreaFragment extends Fragment {
                 } else if (currentLevel == LEVEL_CITY) {
                     selectedCity = cityList.get(position);
                     queryCounties();
+                }else if(currentLevel==LEVEL_COUNTY){
+                    String weatherId=countyList.get(position).getWeatherId();
+                    WeatherActivity.newInstance(getActivity(),weatherId);
+                    getActivity().finish();
                 }
             }
         });
@@ -234,7 +238,7 @@ public class ChooseAreaFragment extends Fragment {
                         public void run() {
                             closeProgressDialog();
 
-                            if ("province".equals(type)) {
+                            if ("provinces".equals(type)) {
                                 queryProvinces();
                             } else if ("city".equals(type)) {
                                 queryCities();
