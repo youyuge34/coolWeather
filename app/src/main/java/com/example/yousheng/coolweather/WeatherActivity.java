@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.yousheng.coolweather.gson.Forecast;
 import com.example.yousheng.coolweather.gson.Weather;
+import com.example.yousheng.coolweather.service.AutoUpdateService;
 import com.example.yousheng.coolweather.util.HttpUtil;
 import com.example.yousheng.coolweather.util.Utility;
 
@@ -245,6 +246,10 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText("洗车指数："+weather.suggestion.carWash.info);
         sportText.setText("运动建议："+weather.suggestion.sport.info);
         weatherLayout.setVisibility(View.VISIBLE);
+
+        //更新视图后启动后台服务
+        Intent intent=new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     /**
