@@ -101,8 +101,16 @@ public class ChooseAreaFragment extends Fragment {
                     queryCounties();
                 }else if(currentLevel==LEVEL_COUNTY){
                     String weatherId=countyList.get(position).getWeatherId();
-                    WeatherActivity.newInstance(getActivity(),weatherId);
-                    getActivity().finish();
+                    //若此活动为主活动，则启动weatherActivity,若已经在weatherActivity活动中，则直接请求服务器更新数据
+                    if(getActivity() instanceof MainActivity){
+                        WeatherActivity.newInstance(getActivity(),weatherId);
+                        getActivity().finish();
+                    }else if(getActivity() instanceof WeatherActivity){
+                        WeatherActivity activity= (WeatherActivity) getActivity();
+                        activity.drawerLayout.closeDrawers();
+                        activity.swipeRefreshLayout.setRefreshing(true);
+                        activity.requestWeather(weatherId);
+                    }
                 }
             }
         });
